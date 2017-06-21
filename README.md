@@ -1,4 +1,4 @@
-<h4>Titanic: Machine Learning from Disaster</h4>
+<h2>Titanic: Machine Learning from Disaster</h2>
 
 https://www.kaggle.com/c/titanic
 
@@ -7,15 +7,15 @@ Description from kaggle:
 
 After reviewing the data, we can see that a lot of preprocessing can be made. The major ideas that were implemented here are described below.
 
-1. <h5>Deciding on features</h5>
+1. <h3>Deciding on features</h3>
 Out of the Passenger class, Name, Sex, Age, SibSp, Parch,	Ticket,	Fare,	Cabin, Embarked we have to decide which ones are relevant for predictions.
-* Passenger class - most likely people with higher class were first to be saved, so this feature gives a clear impact.
-* Name - obviously it is not possible to make predictions by the name of the person. However, there are some tricks discussed later
-* Sex - this factor is likely to impact the predictions, as women were known to be saved first. Moreower, the crew that was last in the line to be saved consisted mainly of men.
-* Age - as with the sex, the kids were saved first, so we can see a clear impact here as well
-* SibSp - this feature defines if there were siblings or spouses on the ship. Probably children of the same family were saved or not saved together, but it is hard to say for sure. The impact of this feature has to be checked later
-* Parch - defines if there were parents or children on the ship. Most likely mothers were saved together with their children, so most likely this feature gives some impact on the predictino.
-* Ticket - as long as we cannot find any patterns in the ticket numbers, this information is of no use, as each ticket has a unique number that is not related to the disaster.
-* Fare - more expensive tickets define better class. However, having the attribute of a class already, there is no need to add redundant information to our model.
-* Cabin - information on the cabin can theoretically give information on the location of the passengers and how far they were from the survival deck. However, this feature has too many NAs, so I decided to neglect it.
-* Embarked - defines the port from where the trip of the passenger started. It is not yet clear if it makes any difference
+* *Passenger class* - most likely people with higher class were first to be saved, so this feature gives a clear impact.
+* *Name* - obviously it is not possible to make predictions by the name of the person. However, there are some tricks discussed later
+* *Sex* - this factor is likely to impact the predictions, as women were known to be saved first. Moreower, the crew that was last in the line to be saved consisted mainly of men.
+* *Age* - as with the sex, the kids were saved first, so we can see a clear impact here as well
+* *SibSp* - this feature defines if there were siblings or spouses on the ship. Probably children of the same family were saved or not saved together, but it is hard to say for sure. The impact of this feature has to be checked later
+* *Parch* - defines if there were parents or children on the ship. Most likely mothers were saved together with their children, so most likely this feature gives some impact on the predictino.
+* *Ticket* - as long as we cannot find any patterns in the ticket numbers, this information is of no use, as each ticket has a unique number that is not related to the disaster.
+* *Fare* - more expensive tickets define better class. However, having the attribute of a class already, there is no need to add redundant information to our model.
+* *Cabin* - information on the cabin can theoretically give information on the location of the passengers and how far they were from the survival deck. However, this feature has too many NAs, so I decided to neglect it.
+* *Embarked* - defines the port from where the trip of the passenger started. It is not yet clear if it makes any difference
