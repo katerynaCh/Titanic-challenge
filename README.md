@@ -29,6 +29,7 @@ As described above, a lot of names come with a prefix. The following ones are pr
 reference: https://habrahabr.ru/company/mlclass/blog/270973/
 
 
+
 Features "Fare", "SibSp", "Cabin" were removed after testing the model, as they did not improve the accuracy of the results. On the other hand, feature "Parch" showed some importance.
 
 After all, the best result was achieved with Random Forest and it was 79.904%. Other models that I tried were Support Vector Machines, Decision Trees and k-Nearest Neighbors. This is quite sad as it it is not much better than the accuracy obtained by prediction solely based on sex. This is not a surprise with such data, but at least feature engineering was fun.
