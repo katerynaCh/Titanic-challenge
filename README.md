@@ -1,4 +1,4 @@
-<h4>Titanic: Machine Learning from Disaster<h4>
+<h4>Titanic: Machine Learning from Disaster</h4>
 
 https://www.kaggle.com/c/titanic
 
@@ -7,7 +7,7 @@ Description from kaggle:
 
 After reviewing the data, we can see that a lot of preprocessing can be made. The major ideas that were implemented here are described below.
 
-1. Deciding on features<>
+1. <h5>Deciding on features</h5>
 Out of the Passenger class, Name, Sex, Age, SibSp, Parch,	Ticket,	Fare,	Cabin, Embarked we have to decide which ones are relevant for predictions.
 * Passenger class - most likely people with higher class were first to be saved, so this feature gives a clear impact.
 * Name - obviously it is not possible to make predictions by the name of the person. However, there are some tricks discussed later
