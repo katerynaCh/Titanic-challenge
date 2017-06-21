@@ -9,6 +9,7 @@ After reviewing the data, we can see that a lot of preprocessing can be made. Th
 
 <h3>1. Deciding on features</h3>
 Out of the Passenger class, Name, Sex, Age, SibSp, Parch,	Ticket,	Fare,	Cabin, Embarked we have to decide which ones are relevant for predictions.
+
 * *Passenger class* - most likely people with higher class were first to be saved, so this feature gives a clear impact.
 * *Name* - obviously it is not possible to make predictions by the name of the person. However, there are some tricks discussed later
 * *Sex* - this factor is likely to impact the predictions, as women were known to be saved first. Moreower, the crew that was last in the line to be saved consisted mainly of men.
