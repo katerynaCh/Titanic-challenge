@@ -26,10 +26,12 @@ The basic approach to this problem is to substitute the value with the mean valu
 
 <h3>3. Introducing Titles</h3>
 As described above, a lot of names come with a prefix. The following ones are present: "Capt", "Col", "Don", "Dr", "Jonkheer", "Lady", "Major", "Rev", "Sir", "Countess", "Aristocratic", "Ms", "Mrs", "Mlle", "Mme", "Miss", "Mr", "Master". After reviewing the meaning of each of them, we can simplify them to 5 titles: Mr, Miss, Mrs, Master, Aristocratic and use them as a new feature in our dataframe.
+
 reference: https://habrahabr.ru/company/mlclass/blog/270973/
 
 <h3>4. Dealing with Families </h3>
 Idea gotten from here: https://www.kaggle.com/mrisdal/exploring-survival-on-the-titanic
+
 After reviewing the Parch and SibSp variables, we can think about creating another variable of FamilySize. This is simply Parch + SibSp + 1 (1 is the passenger himself). Then after reviewing the statistical distribution of Survived and NotSurvived passengers, we can see that single travellers and large families have bigger chances to not survive. That is why it is a good idea to convert the values of these variable to 3 discrete values: single traveler (1), small family of 2-4 people (2), big family of >4 (3). Now that we have this discrete variable, we can remove the features FamilySize, Parch, SibSp as they will only add redundancy.
 
 
