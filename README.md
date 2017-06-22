@@ -26,9 +26,11 @@ The basic approach to this problem is to substitute the value with the mean valu
 
 <h3>3. Introducing Titles</h3>
 As described above, a lot of names come with a prefix. The following ones are present: "Capt", "Col", "Don", "Dr", "Jonkheer", "Lady", "Major", "Rev", "Sir", "Countess", "Aristocratic", "Ms", "Mrs", "Mlle", "Mme", "Miss", "Mr", "Master". After reviewing the meaning of each of them, we can simplify them to 5 titles: Mr, Miss, Mrs, Master, Aristocratic and use them as a new feature in our dataframe.
-reference: https://habrahabr.ru/company/mlclass/blog/270973/
+*reference: https://habrahabr.ru/company/mlclass/blog/270973/*
+
+<h3>4. Dealing with Families </h3>
+*Idea gotten from here: https://www.kaggle.com/mrisdal/exploring-survival-on-the-titanic*
+After reviewing the Parch and SibSp variables, we can think about creating another variable of FamilySize. This is simply Parch + SibSp + 1 (1 is the passenger himself). Then after reviewing the statistical distribution of Survived and NotSurvived passengers, we can see that single travellers and large families have bigger chances to not survive. That is why it is a good idea to convert the values of these variable to 3 discrete values: single traveler (1), small family of 2-4 people (2), big family of >4 (3). Now that we have this discrete variable, we can remove the features FamilySize, Parch, SibSp as they will only add redundancy.
 
 
-Features "Fare", "SibSp", "Cabin" were removed after testing the model, as they did not improve the accuracy of the results. On the other hand, feature "Parch" showed some importance.
-
-After all, the best result was achieved with Random Forest and it was 79.904%. Other models that I tried were Support Vector Machines, Decision Trees and k-Nearest Neighbors. This is quite sad as it it is not much better than the accuracy obtained by prediction solely based on sex. This is not a surprise with such data, but at least feature engineering was fun.
+After all, the best result was achieved with Random Forest and it was 80.383%, placing me in between 627-1057 place. Other models that I tried were Support Vector Machines, Decision Trees and k-Nearest Neighbors. This is quite a solution, but it it is not much better than the accuracy obtained by prediction solely based on sex. This is not a surprise with such data, but at least feature engineering was fun. 
