@@ -154,6 +154,27 @@ MyData$Fare <- impute.mean(MyData$Fare, MyData$Pclass, as.numeric((MyData$Pclass
 TestData$Fare[TestData$Fare==0]<-NA
 TestData$Fare <- impute.mean(TestData$Fare, TestData$Pclass, as.numeric((TestData$Pclass)))
 
+#introduce the family size attribute
+MyData$FamilySize<-MyData$SibSp + MyData$Parch + 1
+TestData$FamilySize<-TestData$SibSp + TestData$Parch + 1
+
+#turn to discrete values of how large family is (1=single, 2 = small, 3 = large)
+MyData$FamilySizeD[MyData$FamilySize == 1]<-1
+MyData$FamilySizeD[MyData$FamilySize < 5 & MyData$FamilySize > 1]<-2
+MyData$FamilySizeD[MyData$FamilySize > 4]<-3
+
+TestData$FamilySizeD[TestData$FamilySize == 1]<-1
+TestData$FamilySizeD[TestData$FamilySize < 5 & TestData$FamilySize > 1]<-2
+TestData$FamilySizeD[TestData$FamilySize > 4]<-3
+
+for (family in MyData$FamilySize) {
+  if (family < 5 & family > 1 ) {
+    family <- 2
+  }
+  if (family > 5) {
+    family <- 3
+  }
+}
 
 # MyData$Fare <- impute.mean(MyData$Fare, MyData$Pclass, as.numeric(levels(MyData$Pclass)))
 
@@ -186,8 +207,8 @@ TestData$Title <- change.titles(TestData, c("Aristocratic"), 5)
 
 
 
-MyData<-MyData[,-c(1,4,7,9,10,11)]
-TestData <- TestData[,-c(1,3,6,8,9,10)]
+MyData<-MyData[,-c(1,4,7,9,11,14)]
+TestData <- TestData[,-c(1,3,6,8,10,13)]
 
 #imputed_Data <- amelia(MyData, m=5)
 
@@ -234,8 +255,7 @@ CrossTable(data.test$Survived, predictions, type="C-Classification")
 
 fit <- J48(as.factor(Survived)~., data=MyData)
 predictions <- predict(fit, TestData)
-write.csv(predictions, file = "resultsj48.csv", col.names = TRUE)
-
+write.csv(predictions, file = "j48.csv", col.names = TRUE)
 #model_pred <- knn(train = data.train[,-c(1)], test = data.test[,-c(1)], cl = data.train[,1], k=1)
 #CrossTable(x = data.test[,1], y = model_pred, prop.chisq=FALSE)
 
